@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+}
+
+.grid-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.grid-cell.active {
+  background-color: #3498db;
+}
