@@ -39,7 +39,8 @@ def bresenham(xd, yd, xf, yf):
         s = 2*dy - dx
         xcoords.append(x)
         ycoords.append(y)
-        
+        plt.annotate(f"({x}, {y})", (x, y), size=8, bbox=dict(boxstyle="round", fc=(1.0, 1.0, 1.0, 0.0)))
+        plt.scatter(x,y, color="green")
         while x != xf :
             x = x+inc_x
             
@@ -48,16 +49,21 @@ def bresenham(xd, yd, xf, yf):
                 s = s + 2*(dy-dx)
                 xcoords.append(x)
                 ycoords.append(y)
+                plt.annotate(f"({x}, {y})", (x, y), size=8, bbox=dict(boxstyle="round", fc=(1.0, 1.0, 1.0, 0.0)))
+                plt.scatter(x,y, color="red")
             else :
                 s = s + 2 * dy
                 xcoords.append(x)
                 ycoords.append(y)
+                plt.annotate(f"({x}, {y})", (x, y), size=8, bbox=dict(boxstyle="round", fc=(1.0, 1.0, 1.0, 0.0)))
+                plt.scatter(x, y, color="red")
             
     else :
         s = 2 * dx - dy
         xcoords.append(x)
         ycoords.append(y)
-                
+        plt.annotate(f"({x}, {y})", (x, y), size=8, bbox=dict(boxstyle="round", fc=(1.0, 1.0, 1.0, 0.0)))
+        plt.scatter(x, y, color="red")        
         while y != yf :
             y = y+inc_y
             
@@ -66,14 +72,19 @@ def bresenham(xd, yd, xf, yf):
                 s = s + 2 * (dx - dy)
                 xcoords.append(x)
                 ycoords.append(y)
+                plt.annotate(f"({x}, {y})", (x, y), size=8, bbox=dict(boxstyle="round", fc=(1.0, 1.0, 1.0, 0.0)))
+                plt.scatter(x, y, color="red")
             else:
                 s = s +2 * dx
                 xcoords.append(x)
                 ycoords.append(y)
+                plt.annotate(f"({x}, {y})", (x, y), size=8, bbox=dict(boxstyle="round", fc=(1.0, 1.0, 1.0, 0.0)))
+                plt.scatter(x, y, color="red")
             
     print(xcoords)
     print(ycoords)
-    plt.plot(xcoords, ycoords)
+    plt.scatter(xf, yf, color="green")
+    plt.plot(xcoords, ycoords, color="red")
     plt.show()
         
 
