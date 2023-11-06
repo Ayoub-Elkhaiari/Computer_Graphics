@@ -2,7 +2,8 @@
 
 
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
+import math
 import sys
 
 plt.title("bresenham")
@@ -85,11 +86,39 @@ def bresenham(xd, yd, xf, yf):
     print(ycoords)
     plt.scatter(xf, yf, color="green")
     plt.plot(xcoords, ycoords, color="red")
-    plt.show()
+   # return list(zip(xcoords, ycoords))
+    new_list = []
+    new_list.append(xcoords)
+    new_list.append(ycoords)
+    #return new_list 
+   # print(list(zip(xcoords, ycoords)))
+    
+
+
+def draw_and_rotate(xd, yd, xf , yf, num_duplicates, theta):
+    for _ in range(num_duplicates):
+        bresenham(xd, yd, xf, yf)
+        xf = xf*math.cos(theta) - yf*math.sin(theta)
+        yf = xf*math.sin(theta) - yf*math.cos(theta)
+
+def draw_and_duplicate(xd, yd, xf, yf, num_duplicates):
+    lines = []
+    for _ in range(num_duplicates):
+        bresenham(xd, yd, xf, yf)
+        xd += 1
+    
+        xf += 1
         
+    
 
     
     
+
+
+#def draw(xd, yd, xf, yf):
+ #   bresenham(xd, yd, xf, yf)
+  #  duplicate(xd, yd, xf, yf)
+   # bresenham(xd, yd, xf, yf)
     
 
 
@@ -107,8 +136,9 @@ def main():
     yf = int(coords[3])
 
     
-    bresenham(xd, yd, xf, yf)
-    
+    #draw_and_duplicate(xd , yd, xf, yf, 6)
+    draw_and_rotate(xd, yd, xf, yf, 6 , 45)
+    plt.show()
 
 
 
